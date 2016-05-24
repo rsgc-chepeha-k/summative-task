@@ -1,7 +1,18 @@
 boolean rockPaperScissors = false;
-boolean rock, paper, scissors;
+boolean rok;
+boolean papur;
+boolean scisser;
+PImage rock;
+PImage scissors;
+PImage paper;
+int player;
+int computer;
 void setup() {
   size(500, 500);
+  rock = loadImage("rock.jpg");
+  scissors = loadImage("scissors.jpg");
+  paper = loadImage("paper.jpg");
+  rockPaperScissors=false;
 }
 
 void draw () {
@@ -19,19 +30,30 @@ void draw () {
   rect(370, 400, 80, 50);
   fill(255);
   text( "Scissors", 385, 425);
-  
+  if (rok)
+  {
+    image(rock, 50, 50);
+    player = 1;
+  } else if (papur)
+  {
+    image(paper, 50, 50);
+    player = 2;
+  } else if (scisser)
+  {
+    image(paper, 50, 50);
+    player = 3;
+  }
 }
 
 void mousePressed()
 {
-  if (!rockPaperScissors)
+  if (rockPaperScissors == false)
   {
-    rockPaperScissors = true;
     if (mouseY > 400 && mouseY < 450)
     {
-      if (mouseX > 975 && mouseX < 1000)rock = true;
-      else if (mouseX > 1050 && mouseX < 1075)paper = true;
-      else if (mouseX > 1125 && mouseX < 1150)scissors = true;
+      if (mouseX > 50 && mouseX < 130)rok = true;
+      else if (mouseX > 210 && mouseX < 290)papur = true;
+      else if (mouseX > 370 && mouseX < 450)scisser = true;
     }
   }
 }
