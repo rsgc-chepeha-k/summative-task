@@ -19,16 +19,16 @@ int screenDisplayed;
 
 void setup() {
   size(500, 500);
-    //loading the images to the PImage objects
+  //loading the images to the PImage objects
   rock = loadImage("rock.jpg");
   scissors = loadImage("scissors.jpg");
   paper = loadImage("paper.jpg");
   rules = loadImage("Player.jpg");
   RPS = loadImage("rps.jpg");
-  
+
   buttonPressed=false;
-  
-    //Setting the screenDisplayed variable to 2 so that the menu screen will display
+
+  //Setting the screenDisplayed variable to 2 so that the menu screen will display
   screenDisplayed=2;
   textMode(CENTER);
 }
@@ -45,10 +45,10 @@ void draw () {
     text("Rules:", 10, 75);
     text("How to Play:", 250, 75);
     textSize(12);
-    
-      //This displayes the image which shows the rules
+
+    //This displayes the image which shows the rules
     image(rules, 10, 100);
-    
+
     text("Press ‘s' to start and ‘r' to restart.", 250, 100);
     text("Click the button that corresponds to the", 250, 115);
     text("symbol you want to play.", 250, 130);
@@ -70,7 +70,12 @@ void draw () {
     rect(370, 400, 80, 50);
     fill(255);
     text( "Scissors", 385, 425);
-     //If the boolean rock is true it will set the players variable to 1
+    fill(0);
+
+    textSize(12);
+    text("Player", 25, 15);
+    text("Computer", 275, 15);
+    //If the boolean rock is true it will set the players variable to 1
     if (rok)
     {
       image(rock, 25, 25);
@@ -101,7 +106,6 @@ void draw () {
       if (screenDisplayed == 2);
       noLoop();
     }
-    
     //Each of these if statments are a possible scenario of throws in rock paper scissors. If the variables match the ones in the if statment then it will say either "you win" or, you lose
     if (computer == 1 && player ==1) {
       text("YOU WIN!", 225, 250);
@@ -137,7 +141,7 @@ void mousePressed()
 {
   if (buttonPressed == false)
   {
-     //This checks if the mouse is in the range of the y axis that the buttons share
+    //This checks if the mouse is in the range of the y axis that the buttons share
     if (mouseY > 400 && mouseY < 450)
     {
       //These check if the mouse is in the range of the x axis of that button, if it is when clicked it will set a boolean true to which the player selected
